@@ -1,8 +1,9 @@
 (defproject baobab "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.229"]
+                 [org.clojure/clojurescript "1.9.854"]
                  [reagent "0.6.0"]
-                 [re-frame "0.9.4"]]
+                 [re-frame "0.9.4"]
+                 [cljsjs/material-components "0.13.0-0"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]]
 
@@ -14,11 +15,15 @@
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
+  :sass {:source-paths ["sass/main.scss"]
+         :target-path  "resources/public/css/compiled/app.css"}
+
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.8.2"]]
 
-    :plugins      [[lein-figwheel "0.5.9"]]
+    :plugins      [[lein-figwheel "0.5.11"]
+                   [deraen/lein-sass4clj "0.3.1"]]
     }}
 
   :cljsbuild
@@ -33,6 +38,8 @@
                     :source-map-timestamp true
                     :preloads             [devtools.preload]
                     :external-config      {:devtools/config {:features-to-install :all}}
+                    :npm-deps {"@blueprintjs/core" "1.24.0"}
+                    :install-deps true
                     }}
 
     {:id           "min"

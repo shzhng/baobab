@@ -6,3 +6,8 @@
  :name
  (fn [db]
    (:name db)))
+
+(re-frame/reg-sub
+  :dfs-address
+  (fn [db]
+    (:dfs-address db)))
