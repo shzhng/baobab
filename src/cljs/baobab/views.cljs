@@ -1,9 +1,12 @@
 (ns baobab.views
   (:require [re-frame.core :as re-frame]
-            [cljsjs.material-components]))
+            ;[cljsjs.material-components]
+            ;[react-datepicker]
+            ))
 
 (defn main-panel []
   (fn []
     [:div
      [:div "Hello from " @(re-frame/subscribe [:dfs-address])]
-     [:button.mdc-button "Button"]]))
+     ;[react-datepicker/DatePicker]
+     ]))
